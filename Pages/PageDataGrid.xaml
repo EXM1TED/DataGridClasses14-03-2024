@@ -9,16 +9,46 @@
       Title="PageDataGrid">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
         <DataGrid Name="DtgStudents"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False"
+                  Grid.Column="0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер"/>
-                <DataGridTextColumn Header="Фамилия"/>
-                <DataGridTextColumn Header="Имя"/>
-                <DataGridTextColumn Header="Группа"/>
-                <DataGridTextColumn Header="Телефон"/>
-                <DataGridTextColumn Header="Стипендия"/>
+                <DataGridTextColumn Header="Номер"
+                                    Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Фамилия"
+                                    Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Имя"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Возраст"
+                                    Binding="{Binding Age}"/>
+                <DataGridTextColumn Header="Телефон"
+                                    Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Стипендия"
+                                    Binding="{Binding Scholarship}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <StackPanel Grid.Column="1"
+            Orientation="Vertical"
+                    HorizontalAlignment="Stretch">
+            <TextBlock Text="Поиск по фамилии"/>
+            <TextBox Name="txtSearchLastName"
+                     TextChanged="txtSearchLastName_TextChanged"/>
+            <!--Фильтрация - это поиск по атрибуту с заданным условием-->
+            <TextBlock Text="Фильтр по возрасту"/>
+            <ComboBox Name="cmbFiltrAge"
+                      SelectionChanged="cmbFiltrAge_SelectionChanged">
+                <ComboBoxItem Content="Все"/>
+                <ComboBoxItem Content="Несовершеннолетние"/>
+                <ComboBoxItem Content="Совершеннолетние"/>
+            </ComboBox>
+        </StackPanel>
     </Grid>
 </Page>

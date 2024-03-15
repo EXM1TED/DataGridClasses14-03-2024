@@ -7,8 +7,10 @@ using System.Windows.Controls;
 
 namespace WpfApp1.Classes
 {
-    public class ClassHelper
+    class ClassHelper
     {
         public static Frame frame;
+
+        public static List<ClassStudent> listStudents = new List<ClassStudent>();
     }
 }

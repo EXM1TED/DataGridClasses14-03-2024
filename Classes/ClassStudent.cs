@@ -25,7 +25,8 @@ namespace WpfApp1.Classes
             Phone = string.Empty;
             Scholarship = 0;
         }
-        public ClassStudent(int id, string lastname, string name, int age, string phone, double scholarship)
+        public ClassStudent(int id, string lastname, string name, 
+            int age, string phone, double scholarship)
         {
             Id = id;
             Name = name;
